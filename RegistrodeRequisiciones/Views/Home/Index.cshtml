@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Registro de Requisiciones";
+}
+<head>
+<meta name="viewport" content="width=device-width, initial-scale= 1.0"  >
+</head>
+<div class="body">  
+    <img src="/images/logo.png" class="logo_farmandina" alt
+
+    <div class="container">
+
+        <div id="login-section" class="form-container">
+
+            <h2>Iniciar Sesión</h2>
+            <form action="/Home/Login" method="POST">
+                <div class="form-group">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                </div> <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div> <button type="submit" class="btn">Ingresar</button>
+            </form>
+            @{
+                if (!string.IsNullOrEmpty((string)TempData["Error"]))
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @TempData["Error"]
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
