@@ -9,5 +9,6 @@
         public string Email { get; set; } = string.Empty;
         public virtual ICollection<Loan> ApplicantLoans { get; set; } = new List<Loan>();
         public virtual ICollection<Loan> ResponsibleLoans { get; set; } = new List<Loan>();
+        public bool IsResponsible { get; set; }
     }
 }

@@ -1,0 +1,86 @@
+﻿@model RegistrodeRequisiciones.Models.ViewModels.LoanPagedViewModel
+
+@{
+    ViewData["Title"] = "administracion de datos";
+}
+<div class="main-container">
+    <div id="DataManagement-section" class="form-container-datamanagement">
+        <form method="get" asp-action="DataManagement" asp-controller="Home" class="search-form" style="margin-bottom: 20px;">
+            <input type="text" name="searchUser" value="@Model.SearchUser" placeholder="Buscar usuario..." class="form-control" style="width: 300px; display: inline-block; margin-right: 10px;" />
+            <input type="date" name="startDate" value="@(Model.StartDate?.ToString("yyyy-MM-dd"))" class="form-control" style="width: 180px; display: inline-block; margin-right: 10px;" placeholder="Fecha inicio" />
+            <input type="date" name="endDate" value="@(Model.EndDate?.ToString("yyyy-MM-dd"))" class="form-control" style="width: 180px; display: inline-block; margin-right: 10px;" placeholder="Fecha fin" />
+            <button type="submit" class="btn-Data-left">Buscar</button>
+        </form>
+        <form asp-action="AplicarCambios" asp-controller="Home" method="post">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Solicitante</th>
+                        <th>Responsable</th>
+                        <th>Articulo</th>
+                        <th>Tipo de equipo</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Numero de serie</th>
+                        <th>Observaciones</th>
+                        <th>cuando inicio el prestamo</th>
+                        <th>cuando finalizo el prestamo</th>
+                        <th>Finalizar préstamo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Loans != null)
+                    {
+                        int i = 1 + ((Model.PageNumber - 1) * 10);
+                        foreach (var item in Model.Loans)
+                        {
+                            <tr>
+                                <td>@i</td>
+                                <td>@item.Applicant?.UserName</td>
+                                <td>@item.Responsible?.UserName</td>
+                                <td>@item.Article</td>
+                                <td>@item.TypeOfEquipment</td>
+                                <td>@item.brand</td>
+                                <td>@item.model</td>
+                                <td>@item.SerialNumber</td>
+                                <td>@item.Observations</td>
+                                <td>@item.CreatedAt.ToString("g")</td>
+                                <td>@(item.ReturnedAt?.ToString("g") ?? "-")</td>
+                                <td>
+                                    @if (item.ReturnedAt == null)
+                                    {
+                                        <input type="checkbox" name="selectedIds" value="@item.Id" />
+                                    }
+                                </td>
+                            </tr>
+                            i++;
+                        }
+                    }
+                </tbody>
+            </table>
+            <div class="data-btn-row">
+                <a href="Requisition"><button type="button" class="btn-Data-left">regresar</button></a>
+                <button type="submit" class="btn-Data-right">Aplicar cambios</button>
+            </div>
+        </form>
+
+       
+        <div class="export-btn-center">
+            <form asp-action="ExportarPrestamosExcel" method="get">
+                <input type="hidden" name="searchUser" value="@Model.SearchUser" />
+                <input type="hidden" name="startDate" value="@(Model.StartDate?.ToString("yyyy-MM-dd"))" />
+                <input type="hidden" name="endDate" value="@(Model.EndDate?.ToString("yyyy-MM-dd"))" />
+                <button type="submit" class="btn btn-success btn-export-excel">Exportar a Excel</button>
+            </form>
+        </div>
+        <ul class="pagination">
+            @for (int p = 1; p <= Model.TotalPages; p++)
+            {
+                <li class="page-item @(p == Model.PageNumber ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("DataManagement", new { page = p, searchUser = Model.SearchUser, startDate = Model.StartDate?.ToString("yyyy-MM-dd"), endDate = Model.EndDate?.ToString("yyyy-MM-dd") })">@p</a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

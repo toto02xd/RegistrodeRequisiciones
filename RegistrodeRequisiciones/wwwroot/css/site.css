@@ -1,32 +1,38 @@
 /* style html index  */
 .body {
     margin-bottom: 100px;
-} 
+}
 body {
+    margin: 0;
+    padding: 0;
+    background: #232e5f;
     font-family: 'Arial', sans-serif;
-    background-color: #232E5F;
-    display: flex ;
+    min-height: 100vh;
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    color: #333;
 }
 
-.container {
-    width: 100%;
-    max-width: 50%;
+.main-container {
+    max-width: 900px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 2rem;
+   
 }
-
 .form-container {
-    margin-top: initial;
-    margin-left: auto;
-
+    width: 540px;
+    min-width: 260px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     background: #ffffff;
-    padding: 5%;
-    border-radius: 2%;
-    box-shadow: 0 2% 3% rgba(0, 0, 0, 0.1);
-    margin-bottom: 0%;
+    padding: 1.5rem;
+    border-radius: 18px;   
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    margin-bottom: 0;
 }
 
 
@@ -62,7 +68,6 @@ textarea {
 }
 
 .btn {
-
     width: 100%;
     padding: 10px;
     background-color: #232E5F;
@@ -75,13 +80,19 @@ textarea {
 }
     .btn:hover {
         background-color: #f6a015;
+        
     }
 
 
 .logo_farmandina {
-    margin-left: -51%;
-    margin-top: 1%;
-    width: 200px;
+    position: fixed;
+    top: 24px;
+    left: 32px;
+    width: 120px;
+    max-width: 40vw;
+    height: auto;
+    margin: 0;
+    z-index: 1000;
 }
 
 h2 {
@@ -95,33 +106,97 @@ form-label {
     color:white;
 
 }
-body {
-    background-color: #232E5F;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    color: #333;
 
-
-}
  /*style html requisition */
 
 .logo_farmandina_requisition {
-    margin-left: -51%;
-    margin-top: 1%;
-    width: 200px;
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    width: 220px;
+    height: auto;
 }
 
+
+.requisition-container {
+    max-width: 900px;
+    margin: 80px auto 0 auto;
+    padding: 0 24px;
+}
+
+form {
+    background: none;
+    margin-top: 0;
+}
 
 .form-label-Requisition {
-    color: white;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 6px;
+    display: block;
 }
 
-.btn {
+.form-control, .form-select {
     width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    border: none;
+    margin-bottom: 18px;
+    font-size: 16px;
+}
+
+.row {
+    display: flex;
+    gap: 24px;
+}
+
+.col-6 {
+    flex: 1;
+}
+
+.btn-Requisition {
+    width: 100%;
+    padding: 12px;
+    background-color: #f6a015;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: background-color 0.3s;
+}
+
+.btn-Requisition:hover {
+    background-color: #d48806;
+}
+/*style html gratitude */
+
+.btn-group {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.Gratitude {
+
+    text-align: center;
+    color: black;
+    font-size: 50px;
+}
+.GratitudeText {
+
+    text-align: center;
+    color: black;
+    font-size: 30px;
+    margin-top: 20px;
+}
+.btn-gratitude-left {
+    width: 40%;
     padding: 10px;
-    background-color: #f6a015 ;
+    background-color: #232E5F;
     border: none;
     color: white;
     font-size: 16px;
@@ -130,7 +205,262 @@ body {
     transition: background-color 0.3s;
 }
 
-    .btn:hover {
-        background-color: green;
+.btn-gratitude-left:hover {
+    background-color: #f6a015;
+}
+.btn-gratitude-right {
+    margin-left: 19%;
+    width: 40%;
+    padding: 10px;
+    background-color: #232E5F;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .btn-gratitude-right:hover {
+        background-color: #f6a015;
     }
+.form-container-gratitude {
+    margin-top: initial;
+    margin-left: auto;
+    align-items: center;
+    background: #ffffff;
+    padding: 5%;
+    border-radius: 2%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0%;
+}
+/*style html datamanagement */
+.form-container-datamanagement {
+    margin: 40px auto 0 auto;
+    max-width: 1100px;       
+    min-width: 320px;
+    background: #ffffff;
+    padding: 2rem 1.5rem;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    margin-bottom: 2rem;
+    overflow-x: auto;       
+}
+
+.table {
+    width: 100%;
+    min-width: 900px;          
+    border-collapse: collapse;
+    background: transparent;   
+}
+   th, td {
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+    th {
+        background-color: #f4f4f4;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+.btn-Data-left {
+    width: 12%;
+    padding: 10px;
+    background-color: #232E5F;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+    .btn-Data-left:hover {
+        background-color: #f6a015;
+    }
+.btn-Data-right {
+    margin-left: 75%;
+    width: 12%;
+    padding: 10px;
+    background-color: #232E5F;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.btn-Data-right:hover {
+    background-color: green;
+}
+
+.gratitude-buttons {
+    display: flex;
+    gap: 2rem; 
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn-gratitude-left,
+.btn-gratitude-right {
+    width: 250px;
+    margin: 0;
+    text-decoration: none !important;
+    color: white !important;
+    display: inline-block;
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    .main-container {
+        padding: 1rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+.data-btn-group {
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.export-btn-form {
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.data-btn-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 32px;
+    justify-content: center;
+}
+
+.btn-export-excel {
+    min-width: 320px;
+    font-size: 20px;
+    padding: 16px 0;
+}
+
+/*Manual de usuario*/
+
+.UserManual {
+    width: 540px;
+    min-width: 260px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    margin-bottom: 0;
+}
+.container-lay {
+    width: 540px;
+    min-width: 260px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    margin-bottom: 0;
+   
+   
+}
+.container-layout {
+        
+}
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0 0 0;
+    padding: 0;
+    list-style: none;
+    gap: 8px;
+}
+
+.page-item {
+    display: inline;
+}
+
+.page-link {
+    display: inline-block;
+    padding: 8px 16px;
+    color: #232E5F;
+    background: #f4f4f4;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    transition: background 0.2s, color 0.2s;
+}
+
+.page-link:hover {
+    background: #232E5F;
+    color: #fff;
+    text-decoration: none;
+}
+
+.page-item.active .page-link {
+    background: #f6a015;
+    color: #fff;
+    border-color: #f6a015;
+    cursor: default;
+    pointer-events: none;
+
+}
+
+.btn-Data-left {
+    width: 250px;
+    margin: 0;
+    text-decoration: none !important;
+    color: white !important;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    background-color: #232E5F;
+    border: none;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-Data-left:hover {
+    background-color: #f6a015;
+}
+
+.btn-Data-right {
+    width: 250px;
+    margin-left: 19%;
+    text-decoration: none !important;
+    color: white !important;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    background-color: #232E5F;
+    border: none;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-Data-right:hover {
+    background-color: #f6a015;
+}
 

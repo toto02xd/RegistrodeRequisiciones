@@ -1,6 +1,39 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Manual de Usuario";
+    var returnUrl = Context.Request.Headers["Referer"].ToString();
 }
-<h1>@ViewData["Title"]</h1>
+<div class="UserManual">
+<h1 class="title">Manual de Usuario - Sistema de Registro de Requisiciones</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<h2 class="ask1">¿Qué es este sistema?</h2>
+<p class="section1">
+    El sistema permite registrar, gestionar y consultar requisiciones de préstamos de artículos o equipos dentro de la organización.
+</p>
+
+<h2 class="ask2">¿Cómo iniciar sesión?</h2>
+<ol class="seccion2">
+    <li>En la página principal, ingresa tu nombre de usuario y contraseña.</li>
+    <li>Haz clic en <strong>Iniciar sesión</strong>.</li>
+    <li>Si los datos son correctos, accederás al formulario de requisición.</li>
+    <li>Si los datos son incorrectos, aparecerá un mensaje de error.</li>
+</ol>
+
+<h2 class="ask3">¿Cómo registrar una requisición?</h2>
+<ol class="seccion3">
+    <li>Después de iniciar sesión, accede al formulario de requisición.</li>
+    <li>Llena los campos requeridos: solicitante, responsable, artículo, observaciones, tipo de equipo, marca, modelo y número de serie.</li>
+    <li>Haz clic en <strong>Enviar</strong>.</li>
+    <li>Verás una página de agradecimiento confirmando el registro.</li>
+</ol>
+
+<h2 class="ask4">¿Cómo consultar las requisiciones?</h2>
+<ol class="seccion4">
+    <li>Accede a la sección de gestión de datos (Data Management).</li>
+    <li>Podrás ver la lista de todas las requisiciones registradas, junto con los datos del solicitante y responsable.</li>
+    <li>Puedes filtrar las requisiciones por usuario, por día de inicio y por día de fin del préstamo.</li>
+    <li>También puedes generar reportes en formato Excel (CSV) de las requisiciones filtradas, usando el botón <strong>Exportar a Excel</strong>.</li>
+</ol>
+<form method="get" action="@returnUrl">
+    <button type="submit" class="btn-gratitude-left">Regresar</button>
+</form>
+</div>

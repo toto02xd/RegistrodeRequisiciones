@@ -1,44 +1,63 @@
-﻿
-<img src="/images/logo.png" class="logo_farmandina_requisition" alt="">
-<form action="/Home/SendingData" method="POST">
-    <form class="row g-3">
-        <div class="col-6">
-            <label for="Solicitante" class="form-label-Requisition">Solicitante</label>
-            <select id="Solicitante" class="form-select" name="ApplicantId">
-            <option selected>Choose...</option>
-            <option>...</option>
-            </select>
+﻿<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<div class="main-container"> 
+<div class="requisition-container">
+    @{
+        var responsables = ViewBag.Responsables as List<RegistrodeRequisiciones.Models.Entities.User>;
+        var solicitantes = ViewBag.Solicitantes as List<RegistrodeRequisiciones.Models.Entities.User>;
+    }
+    <form action="/Home/SendingData" method="POST" autocomplete="off">
+        <div class="row">
+            <div class="col-6">
+                <label for="Solicitante" class="form-label-Requisition">Solicitante</label>
+                <select id="Solicitante" class="form-select" name="ApplicantId" required>
+                    <option selected disabled>Escoge al solicitante</option>
+                    @foreach (var user in solicitantes)
+                    {
+                        <option value="@user.Id">@user.UserName</option>
+                    }
+                </select>
             </div>
-
-        <div class="col-6" >
-            <label for="responsable" class="form-label-Requisition">Responsable</label>
-            <select id="responsable" class="form-select" name="ResponsibleId">
-                <option selected>Choose...</option>
-                <option>...</option>
-            </select>
+            <div class="col-6">
+                <label for="responsable" class="form-label-Requisition">Responsable</label>
+                <select id="responsable" class="form-control" name="ResponsibleId" required>
+                    <option selected disabled>Escoge al responsable</option>
+                    @foreach (var responsable in responsables)
+                    {
+                        <option value="@responsable.Id">@responsable.UserName</option>
+                    }
+                </select>
+            </div>
         </div>
-
-        <div class="col-6">
-            <label for="Articulo" class="form-label-Requisition">Articulo</label>
-            <input type="text" class="form-control" id="articulo" name="Article">
-
+        <div>
+            <label for="articulo" class="form-label-Requisition">Articulo</label>
+            <input type="text" class="form-control" id="articulo" name="Article" required>
         </div>
-
-        <div class="col-12">
-            <label for="TipoDeEquipo" class="form-label-Requisition">Tipo de equipo </label>
-            <input type="text" class="form-control" id="TipoDeEquipo" name="TypeOfEquipment
-">
+        <div>
+            <label for="TipoDeEquipo" class="form-label-Requisition">Tipo de equipo</label>
+            <input type="text" class="form-control" id="TipoDeEquipo" name="TypeOfEquipment" required>
         </div>
-        <div class="col-12">
-            <label for="Marca" class="form-label-Requisition">Marca</label>
-            <input type="text" class="form-control" id="Marca" name="model">
+        <div class="row">
+            <div class="col-6">
+                <label for="Marca" class="form-label-Requisition">Marca</label>
+                <input type="text" class="form-control" id="Marca" name="brand" required>
+            </div>
+            <div class="col-6">
+                <label for="Modelo" class="form-label-Requisition">Modelo</label>
+                <input type="text" class="form-control" id="Modelo" name="model" required>
+            </div>
         </div>
-        <div class="col">
-            <label for="NumerodeSerie" class="form-label-Requisition">Numero de serie</label>
-            <input type="text" class="form-control" id="NumeroDeSerie" name="SerialNumber">
+        <div>
+            <label for="NumeroDeSerie" class="form-label-Requisition">Numero de serie</label>
+            <input type="text" class="form-control" id="NumeroDeSerie" name="SerialNumber" required>
         </div>
-        <div class="col">
-            <button type="submit" class="btn btn-primary">Sign in</button>
+        <div>
+            <label for="observaciones" class="form-label-Requisition">Observaciones</label>
+            <input type="text" class="form-control" id="observaciones" name="Observations" required>
         </div>
+        <button type="submit" class="btn-Requisition btn-block">Enviar</button>
     </form>
-</form>
+</div>
+</div>
+@model List<RegistrodeRequisiciones.Models.Entities.User>

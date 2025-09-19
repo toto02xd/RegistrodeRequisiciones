@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using RegistrodeRequisiciones.Models.Entities;
 
 namespace RegistrodeRequisiciones.Context
@@ -18,10 +19,9 @@ namespace RegistrodeRequisiciones.Context
                 optionsBuilder.UseSqlServer("Server=LSGT-IT\\FARMANDINA; Database=Farmandina; User Id=sa; Password=Guatemala1.; Trust Server Certificate=true");
             }
         }
-
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Loan> Loans { get; set; }
-
+       
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
